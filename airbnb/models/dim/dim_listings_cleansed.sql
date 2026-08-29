@@ -1,3 +1,7 @@
+{{config(
+    materialized = 'view')
+    }}
+
 WITH src_listings AS (
   SELECT
     *
@@ -13,7 +17,8 @@ SELECT
     ELSE minimum_nights
   END AS minimum_nights,
   host_id,
-  REPLACE(price_str,'$') :: NUMBER(10,2) AS price,
+  REPLACE(price_str,'$') :: NUMBER(10,2
+  ) AS price,
   created_at,
   updated_at
 FROM
